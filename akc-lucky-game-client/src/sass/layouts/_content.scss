@@ -1,0 +1,40 @@
+.content {
+    height: 100vh;
+    .particles {
+        background-color: #f1f1f1;
+        position: fixed;
+        z-index: -1;
+    }
+    .page-wrapper {
+        padding: 70px 0;
+        .page {
+            border-radius: 10px;
+            padding: 16px 10px;
+            min-height: 100vh;
+            background-color: rgba($color: #ffffff, $alpha: 0.5);
+            .title {
+                color: #444;
+                font-size: 1.5rem;
+                font-weight: 600;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .sub-title {
+                color: #ff4500;
+                font-weight: 600;
+                font-family: 'Open Sans', sans-serif;
+                text-decoration: underline;
+            }
+            .line {
+                padding: 20px;
+                hr {
+                    margin: 0 auto;
+                    width: 60%;
+                    border: rgb(176, 38, 38) 1px solid;
+                }
+            }
+            table {
+                background-color: white;
+            }
+        }
+    }
+}

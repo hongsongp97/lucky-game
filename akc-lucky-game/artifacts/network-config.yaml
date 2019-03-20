@@ -1,0 +1,529 @@
+---
+#
+# The network connection profile provides client applications the information about the target
+# blockchain network that are necessary for the applications to interact with it. These are all
+# knowledge that must be acquired from out-of-band sources. This file provides such a source.
+#
+name: "AKC"
+
+#
+# Any properties with an "x-" prefix will be treated as application-specific, exactly like how naming
+# in HTTP headers or swagger properties work. The SDK will simply ignore these fields and leave
+# them for the applications to process. This is a mechanism for different components of an application
+# to exchange information that are not part of the standard schema described below. In particular,
+# the "x-type" property with the "hlfv1" value example below is used by Hyperledger Composer to
+# determine the type of Fabric networks (v0.6 vs. v1.0) it needs to work with.
+#
+x-type: "hlfv1"
+
+#
+# Describe what the target network is/does.
+#
+description: "AKC Network"
+
+#
+# Schema version of the content. Used by the SDK to apply the corresponding parsing rules.
+#
+version: "1.0"
+
+#
+# The client section will be added on a per org basis see org1.yaml and org2.yaml
+#
+# client
+#
+# [Optional]. But most apps would have this section so that channel objects can be constructed
+# based on the content below. If an app is creating channels, then it likely will not need this
+# section.
+#
+channels:
+  # name of the channel
+  akcchannel:
+    orderers:
+      - network-akc.orderer.com
+    peers:
+      network-akc-peer0.akc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-akc-peer1.akc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+    chaincodes:
+      - akc_cc:v1.0
+
+  aiachannel:
+    orderers:
+      - network-akc.orderer.com
+    peers:
+
+      network-akc-peer0.akc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-akc-peer1.akc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-aia-peer0.aia.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-aia-peer1.aia.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+    chaincodes:
+      # the format follows the "cannonical name" of chaincodes by fabric code
+      - aia_cc:v1.0
+
+  utopchannel:
+    orderers:
+      - network-akc.orderer.com
+    peers:
+
+      network-akc-peer0.akc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-akc-peer1.akc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-utop-peer0.utop.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-utop-peer1.utop.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-frt-peer0.frt.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-frt-peer1.frt.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+    chaincodes:
+      # the format follows the "cannonical name" of chaincodes by fabric code
+      - utop_cc:v1.0
+
+  testcaliperchannel:
+    orderers:
+      - network-akc.orderer.com
+    peers:
+
+      network-akc-peer0.akc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-akc-peer1.akc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-utop-peer0.utop.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-utop-peer1.utop.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-frt-peer0.frt.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-frt-peer1.frt.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+    chaincodes:
+      # the format follows the "cannonical name" of chaincodes by fabric code
+      - s1mple_cc:v1.1
+
+  ctcchannel:
+    orderers:
+      - network-akc.orderer.com
+    peers:
+
+      network-akc-peer0.akc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-akc-peer1.akc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-ctc-peer0.ctc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-ctc-peer1.ctc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+    chaincodes:
+      # the format follows the "cannonical name" of chaincodes by fabric code
+      - ctc_cc:v1.0
+
+  akcdevchannel:
+    orderers:
+      - network-akc.orderer.com
+    peers:
+
+      network-akc-peer0.akc.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-akc-peer1.akc.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+
+      network-dev-peer0.dev.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+      network-dev-peer1.dev.com:
+        endorsingPeer: false
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: false
+    chaincodes:
+      # the format follows the "cannonical name" of chaincodes by fabric code
+      - akcdev_cc:v1.0
+      
+
+#
+# list of participating organizations in this network
+#
+organizations:
+  akc:
+    mspid: akcMSP
+
+    peers:
+      - network-akc-peer0.akc.com
+      - network-akc-peer1.akc.com
+
+    # [Optional]. Certificate Authorities issue certificates for identification purposes in a Fabric based
+    # network. Typically certificates provisioning is done in a separate process outside of the
+    # runtime network. Fabric-CA is a special certificate authority that provides a REST APIs for
+    # dynamic certificate management (enroll, revoke, re-enroll). The following section is only for
+    # Fabric-CA servers.
+    certificateAuthorities:
+      - ca-akc
+
+    # [Optional]. If the application is going to make requests that are reserved to organization
+    # administrators, including creating/updating channels, installing/instantiating chaincodes, it
+    # must have access to the admin identity represented by the private key and signing certificate.
+    # Both properties can be the PEM string or local path to the PEM file. Note that this is mainly for
+    # convenience in development mode, production systems should not expose sensitive information
+    # this way. The SDK should allow applications to set the org admin identity via APIs, and only use
+    # this route as an alternative when it exists.
+    adminPrivateKey:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/akc.com/users/Admin@akc.com/msp/keystore/dbded62d3bd295fb1a8f12f666d5df10ab8b71fa7e32b347b3d847fdba0efd0f_sk
+    signedCert:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/akc.com/users/Admin@akc.com/msp/signcerts/Admin@akc.com-cert.pem
+
+  # the profile will contain public information about organizations other than the one it belongs to.
+  # These are necessary information to make transaction lifecycles work, including MSP IDs and
+  # peers with a public URL to send transaction proposals. The file will not contain private
+  # information reserved for members of the organization, such as admin key and certificate,
+  # fabric-ca registrar enroll ID and secret, etc.
+  aia:
+    mspid: aiaMSP
+    peers:
+      - network-aia-peer0.aia.com
+      - network-aia-peer1.aia.com
+    certificateAuthorities:
+      - ca-aia
+    adminPrivateKey:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/aia.com/users/Admin@aia.com/msp/keystore/49eb1850d43f64a0ec3145c89bb93da3024b12e0625965d0477ce2d7d265a3c9_sk
+    signedCert:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/aia.com/users/Admin@aia.com/msp/signcerts/Admin@aia.com-cert.pem
+  utop:
+    mspid: utopMSP
+    peers:
+      - network-utop-peer0.utop.com
+      - network-utop-peer1.utop.com
+    certificateAuthorities:
+      - ca-utop
+    adminPrivateKey:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/utop.com/users/Admin@utop.com/msp/keystore/b9975b99accdc734eeb6ca658c23019cb084a86106fcac3fe323f92d62fb48b9_sk
+    signedCert:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/utop.com/users/Admin@utop.com/msp/signcerts/Admin@utop.com-cert.pem
+
+  frt:
+    mspid: frtMSP
+    peers:
+      - network-frt-peer0.frt.com
+      - network-frt-peer1.frt.com
+    certificateAuthorities:
+      - ca-frt
+    adminPrivateKey:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/frt.com/users/Admin@frt.com/msp/keystore/3442b72213bfb39c1a9d0ddc6a26dd6097d9e6d7fce2b93d92dd4fd8915ceb8c_sk
+    signedCert:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/frt.com/users/Admin@frt.com/msp/signcerts/Admin@frt.com-cert.pem
+
+  ctc:
+    mspid: ctcMSP
+    peers:
+      - network-ctc-peer0.ctc.com
+      - network-ctc-peer1.ctc.com
+    certificateAuthorities:
+      - ca-ctc
+    adminPrivateKey:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/ctc.com/users/Admin@ctc.com/msp/keystore/3b3bee7de6b6b630e1a2c97b1c7d23dde4ab93ced364ed405b69fb1aacadf429_sk
+    signedCert:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/ctc.com/users/Admin@ctc.com/msp/signcerts/Admin@ctc.com-cert.pem
+
+  dev:
+    mspid: devMSP
+    peers:
+      - network-dev-peer0.dev.com
+      - network-dev-peer1.dev.com
+    certificateAuthorities:
+      - ca-dev
+    adminPrivateKey:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/dev.com/users/Admin@dev.com/msp/keystore/f97f7ccfbe8d61c87398960805bed757ae34015669a4b95e854f6b9fa50083e4_sk
+    signedCert:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/dev.com/users/Admin@dev.com/msp/signcerts/Admin@dev.com-cert.pem
+
+#
+# List of orderers to send transaction and channel create/update requests to. For the time
+# being only one orderer is needed. If more than one is defined, which one get used by the
+# SDK is implementation specific. Consult each SDK's documentation for its handling of orderers.
+#
+orderers:
+  network-akc.orderer.com:
+    url: grpcs://3.0.121.250:7050
+
+    # these are standard properties defined by the gRPC library
+    # they will be passed in as-is to gRPC client constructor
+    grpcOptions:
+      ssl-target-name-override: network-akc.orderer.com
+      grpc-max-send-message-length: -1
+
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/ordererOrganizations/orderer.com/orderers/network-akc.orderer.com/tls/ca.crt
+
+#
+# List of peers to send various requests to, including endorsement, query
+# and event listener registration.
+#
+peers:
+  network-akc-peer0.akc.com:
+    # this URL is used to send endorsement and query requests
+    url: grpcs://3.0.0.53:7051
+
+    grpcOptions:
+      ssl-target-name-override: network-akc-peer0.akc.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/akc.com/peers/peer0.akc.com/tls/ca.crt
+
+  network-akc-peer1.akc.com:
+    url: grpcs://3.0.1.26:7056
+    grpcOptions:
+      ssl-target-name-override: network-akc-peer1.akc.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/akc.com/peers/peer1.akc.com/tls/ca.crt
+
+  network-aia-peer0.aia.com:
+    url: grpcs://18.136.139.209:8051
+    grpcOptions:
+      ssl-target-name-override: network-aia-peer0.aia.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/aia.com/peers/peer0.aia.com/tls/ca.crt
+
+  network-aia-peer1.aia.com:
+    url: grpcs://3.0.195.150:8056
+    grpcOptions:
+      ssl-target-name-override: network-aia-peer1.aia.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/aia.com/peers/peer1.aia.com/tls/ca.crt
+
+  network-utop-peer0.utop.com:
+    url: grpcs://3.0.234.14:9051
+    grpcOptions:
+      ssl-target-name-override: network-utop-peer0.utop.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/utop.com/peers/peer0.utop.com/tls/ca.crt
+
+  network-utop-peer1.utop.com:
+    url: grpcs://3.0.234.14:9056
+    grpcOptions:
+      ssl-target-name-override: network-utop-peer1.utop.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/utop.com/peers/peer1.utop.com/tls/ca.crt
+
+  network-frt-peer0.frt.com:
+    url: grpcs://54.254.224.206:10051
+    grpcOptions:
+      ssl-target-name-override: network-frt-peer0.frt.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/frt.com/peers/peer0.frt.com/tls/ca.crt
+
+  network-frt-peer1.frt.com:
+    url: grpcs://54.254.224.206:10056
+    grpcOptions:
+      ssl-target-name-override: network-frt-peer1.frt.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/frt.com/peers/peer1.frt.com/tls/ca.crt
+
+  network-ctc-peer0.ctc.com:
+    url: grpcs://54.251.133.125:11051
+    grpcOptions:
+      ssl-target-name-override: network-ctc-peer0.ctc.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/ctc.com/peers/peer0.ctc.com/tls/ca.crt
+
+  network-ctc-peer1.ctc.com:
+    url: grpcs://52.76.169.61:11056
+    grpcOptions:
+      ssl-target-name-override: network-ctc-peer1.ctc.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/ctc.com/peers/peer1.ctc.com/tls/ca.crt
+
+  network-dev-peer0.dev.com:
+    url: grpcs://3.0.221.6:12051
+    grpcOptions:
+      ssl-target-name-override: network-dev-peer0.dev.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/dev.com/peers/peer0.dev.com/tls/ca.crt
+
+  network-dev-peer1.dev.com:
+    url: grpcs://3.0.107.109:12056
+    grpcOptions:
+      ssl-target-name-override: network-dev-peer1.dev.com
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/dev.com/peers/peer1.dev.com/tls/ca.crt
+
+#
+# Fabric-CA is a special kind of Certificate Authority provided by Hyperledger Fabric which allows
+# certificate management to be done via REST APIs. Application may choose to use a standard
+# Certificate Authority instead of Fabric-CA, in which case this section would not be specified.
+#
+certificateAuthorities:
+  ca-akc:
+    url: https://3.0.0.53:7054
+    # the properties specified under this object are passed to the 'http' client verbatim when
+    # making the request to the Fabric-CA server
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/akc.com/ca/ca.akc.com-cert.pem
+
+    # Fabric-CA supports dynamic user enrollment via REST APIs. A "root" user, a.k.a registrar, is
+    # needed to enroll and invoke new users.
+    registrar:
+      - enrollId: admin
+        enrollSecret: wULQy2,
+    # [Optional] The optional name of the CA.
+    caName: ca-akc
+
+  ca-aia:
+    url: https://18.136.139.209:8054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/aia.com/ca/ca.aia.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: pHEqIC,
+    # [Optional] The optional name of the CA.
+    caName: ca-aia
+
+  ca-utop:
+    url: https://3.0.234.14:9054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/utop.com/ca/ca.utop.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: Jb1Obl,
+    # [Optional] The optional name of the CA.
+    caName: ca-utop
+
+  ca-frt:
+    url: https://54.254.224.206:10054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/frt.com/ca/ca.frt.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: t624V8,
+    # [Optional] The optional name of the CA.
+    caName: ca-frt
+
+  ca-ctc:
+    url: https://54.251.133.125:11054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/ctc.com/ca/ca.ctc.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: A1L7wP,
+    # [Optional] The optional name of the CA.
+    caName: ca-ctc
+
+  ca-dev:
+    url: https://3.0.221.6:12054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: /home/ubuntu/akc-supplyChain-Dapp/supplychain-dapp/artifacts/crypto-config/peerOrganizations/dev.com/ca/ca.dev.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: hQZvc8,
+    # [Optional] The optional name of the CA.
+    caName: ca-dev

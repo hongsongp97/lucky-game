@@ -1,0 +1,28 @@
+.header {
+    height: 60px;
+    background: #833ab4;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(252, 176, 69, 1), rgba(253, 29, 29, 1), rgba(131,58,180, 1));
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(252, 176, 69, 1), rgba(253, 29, 29, 1), rgba(131,58,180, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: transparent;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+
+    .nav-link {
+        line-height: 20px;
+        color: #b22222;
+        border-radius: 4px;
+        &:hover {
+            background-color: #ffa500;
+            color: white;
+        }
+    }
+
+    .router-link-active {
+        font-weight: 600;
+        font-size: 18px;
+    }
+}
